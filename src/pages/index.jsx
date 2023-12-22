@@ -56,8 +56,9 @@ function AuthPage() {
 
   return (
     <Background className="bg">
-      <Card sx={{ minWidth: 275 }}>
-        <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <Card sx={{ minWidth: 275, backgroundColor: 'rgba(255, 255, 255, 0.65)' }}>
+        {/* make the card background transparent 0.5 */}
+        <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <Typography variant="h5" component="div" gutterBottom sx={{fontWeight: 700}}>
             Prospects Management
           </Typography>
