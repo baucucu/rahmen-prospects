@@ -7,7 +7,8 @@ import {
     Button,
     Select,
     InputLabel,
-    FormControl
+    FormControl,
+    Grid,
 } from '@mui/material';
 import PropTypes from 'prop-types';
 
@@ -27,7 +28,7 @@ function ProspectModal({ open, onClose, onSave }) {
     <Dialog open={open} onClose={onClose} maxWidth="md" fullWidth>
       <DialogTitle>Add a New Prospect</DialogTitle>
       <DialogContent>
-        <form id="prospectForm" onSubmit={handleSubmit}>
+        <form id="prospectForm" onSubmit={handleSubmit} autoComplete='off'>
             {/* 
             a form with the following fields:
             1. Company Name : input text
@@ -43,117 +44,153 @@ function ProspectModal({ open, onClose, onSave }) {
             11. Founder's LinkedIn : input text
             12. Data Source select from 1. Startplatz: https://www.startplatz.de/startups 2. Munich Startup: https://www.munich-startup.de/startups/ 3. Startup Map Berlin: https://bit.ly/485B54 4. Startups NRW: https://bit.ly/3v98pcM 5. Startbase: https://www.startbase.de/startups/ 6. EU Startups: https://bit.ly/3RuCQlc
             */}
-            <TextField
-                autoFocus
-                margin="dense"
-                id="companyName"
-                label="Company Name"
-                type="text"
-                fullWidth
-            />
-            <TextField
-                margin="dense"
-                id="foundingYear"
-                label="Founding Year"
-                type="number"
-                fullWidth
-            />
-            <FormControl fullWidth>
-                <InputLabel id="stage-label">Stage</InputLabel>
-                <Select
-                    margin="dense"
-                    id="stage"
-                    label="Stage"
-                    type="text"
-                    fullWidth
-                >
-                    <option value="seed">Seed</option>
-                    <option value="seriesA">Series A</option>
-                    <option value="seriesB">Series B</option>
-                    <option value="seriesC">Series C</option>
-                    <option value="seriesD">Series D</option>
-                    <option value="seriesE">Series E</option>
-                    <option value="seriesF">Series F</option>
-                    <option value="seriesG">Series G</option>
-                    <option value="seriesH">Series H</option>
-                    <option value="ipo">IPO</option>
-                    <option value="acquired">Acquired</option>
-                    <option value="other">Other</option>
-                </Select>
-            </FormControl>
-            <TextField
-                margin="dense"
-                id="location"
-                label="Location"
-                type="text"
-                fullWidth
-            />
-            <TextField
-                margin="dense"
-                id="website"
-                label="Website"
-                type="text"
-                fullWidth
-            />
-            <TextField
-                margin="dense"
-                id="companyEmail"
-                label="Company Email"
-                type="text"
-                fullWidth
-            />
-            <TextField
-                margin="dense"
-                id="companyPhone"
-                label="Company Phone"
-                type="text"
-                fullWidth
-            />
-            <TextField
-                margin="dense"
-                id="founderFirstName"
-                label="Founder First Name"
-                type="text"
-                fullWidth
-            />
-            <TextField
-                margin="dense"
-                id="founderLastName"
-                label="Founder Last Name"
-                type="text"
-                fullWidth
-            />
-            <TextField
-                margin="dense"
-                id="founderEmail"
-                label="Founder Email"
-                type="text"
-                fullWidth
-            />
-            <TextField
-                margin="dense"
-                id="founderLinkedIn"
-                label="Founder LinkedIn"
-                type="text"
-                fullWidth
-            />
-            <FormControl fullWidth>
-                <InputLabel id="source-label">Source</InputLabel>
-                <Select
-                    margin="dense"
-                    id="dataSource"
-                    label="Data Source"
-                    type="text"
-                    fullWidth
-                >
-                    <option value="startplatz">Startplatz</option>
-                    <option value="munichStartup">Munich Startup</option>
-                    <option value="startupMapBerlin">Startup Map Berlin</option>
-                    <option value="startupsNRW">Startups NRW</option>
-                    <option value="startbase">Startbase</option>
-                    <option value="euStartups">EU Startups</option>
-                </Select>
-            </FormControl>
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        id="companyName"
+                        label="Company Name"
+                        type="text"
+                        fullWidth
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        margin="dense"
+                        id="website"
+                        label="Website"
+                        type="text"
+                        fullWidth
+                    />
+                </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                <FormControl fullWidth>
+                    <InputLabel id="stage-label">Stage</InputLabel>
+                    <Select
+                        margin="dense"
+                        id="stage"
+                        label="Stage"
+                        type="text"
+                        fullWidth
+                    >
+                        <option value="seed">Seed</option>
+                        <option value="seriesA">Series A</option>
+                        <option value="seriesB">Series B</option>
+                        <option value="seriesC">Series C</option>
+                        <option value="seriesD">Series D</option>
+                        <option value="seriesE">Series E</option>
+                        <option value="seriesF">Series F</option>
+                        <option value="seriesG">Series G</option>
+                        <option value="seriesH">Series H</option>
+                        <option value="ipo">IPO</option>
+                        <option value="acquired">Acquired</option>
+                        <option value="other">Other</option>
+                    </Select>
+                </FormControl>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <FormControl fullWidth>
+                        <InputLabel id="source-label">Source</InputLabel>
+                        <Select
+                            margin="dense"
+                            id="dataSource"
+                            label="Data Source"
+                            type="text"
+                            fullWidth
+                        >
+                            <option value="startplatz">Startplatz</option>
+                            <option value="munichStartup">Munich Startup</option>
+                            <option value="startupMapBerlin">Startup Map Berlin</option>
+                            <option value="startupsNRW">Startups NRW</option>
+                            <option value="startbase">Startbase</option>
+                            <option value="euStartups">EU Startups</option>
+                        </Select>
+                    </FormControl>
+                </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        margin="dense"
+                        id="foundingYear"
+                        label="Founding Year"
+                        type="number"
+                        fullWidth
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        margin="dense"
+                        id="location"
+                        label="Location"
+                        type="text"
+                        fullWidth
+                    />
+                </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        margin="dense"
+                        id="companyEmail"
+                        label="Company Email"
+                        type="text"
+                        fullWidth
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        margin="dense"
+                        id="companyPhone"
+                        label="Company Phone"
+                        type="text"
+                        fullWidth
+                    />
+                </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        margin="dense"
+                        id="founderFirstName"
+                        label="Founder First Name"
+                        type="text"
+                        fullWidth
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        margin="dense"
+                        id="founderLastName"
+                        label="Founder Last Name"
+                        type="text"
+                        fullWidth
+                    />
+                </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        margin="dense"
+                        id="founderEmail"
+                        label="Founder Email"
+                        type="text"
+                        fullWidth
+                    />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                    <TextField
+                        margin="dense"
+                        id="founderLinkedIn"
+                        label="Founder LinkedIn"
+                        type="text"
+                        fullWidth
+                    />
+                </Grid>
+            </Grid>
         </form>
       </DialogContent>
       <DialogActions>
