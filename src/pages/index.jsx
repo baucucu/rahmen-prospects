@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
 import { auth, provider } from "../firebase-config";
 import { useNavigate } from "react-router";
 import { Button, Card, CardContent, Typography, Box } from '@mui/material';
-import { styled } from '@mui/material/styles';
+import { styled } from '@mui/system';
 
 const Background = styled(Box)({
   height: '100vh',
@@ -11,7 +11,6 @@ const Background = styled(Box)({
   justifyContent: 'center',
   alignItems: 'center',
 });
-
 
 function AuthPage() {
   const navigate = useNavigate();
@@ -55,9 +54,8 @@ function AuthPage() {
   }, [navigate]);
 
   return (
-    <Background className="bg">
-      <Card sx={{ minWidth: 275, backgroundColor: 'rgba(255, 255, 255, 0.65)' }}>
-        {/* make the card background transparent 0.5 */}
+    <Background className="bg_login">
+      <Card sx={{ minWidth: 275, backgroundColor: 'rgb(255,255,255,0.5)' }}>
         <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <Typography variant="h5" component="div" gutterBottom sx={{fontWeight: 700}}>
             Prospects Management

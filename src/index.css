@@ -3,9 +3,20 @@ body {
     margin: 0;
   }
 
-.bg {
-  background-image: url('./assets/bg.png');
+.bg_login {
+  background-image: url('./assets/bg_login.png') !important;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.bg_prospect {
+  background-image: url('./assets/prospect_bg.png') !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.opaque {
+  background-color: rgba(255, 255, 255, 0.9) !important;
 }
