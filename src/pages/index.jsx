@@ -2,6 +2,16 @@ import React, { useEffect } from "react";
 import { GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "firebase/auth";
 import { auth, provider } from "../firebase-config";
 import { useNavigate } from "react-router";
+import { Button, Card, CardContent, Typography, Box } from '@mui/material';
+import { styled } from '@mui/material/styles';
+
+const Background = styled(Box)({
+  height: '100vh',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+});
+
 
 function AuthPage() {
   const navigate = useNavigate();
@@ -43,11 +53,23 @@ function AuthPage() {
     // Cleanup the subscription on unmount
     return () => unsubscribe();
   }, [navigate]);
+
   return (
-    <div>
-      <h1>Authentication</h1>
-      <button onClick={signInWithGoogle}>Sign in with Google</button>
-    </div>
+    <Background className="bg">
+      <Card sx={{ minWidth: 275 }}>
+        <CardContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Typography variant="h5" component="div" gutterBottom sx={{fontWeight: 700}}>
+            Prospects Management
+          </Typography>
+          <Button variant="contained" onClick={signInWithGoogle} sx={{ mt: 2 }}>
+            Sign in with Google
+          </Button>
+          <Typography variant="caption" component="div" sx={{marginTop: '20px'}}>
+            You need to be on the users list to be able to sign in.
+          </Typography>
+        </CardContent>
+      </Card>
+    </Background>
   );
 }
 
