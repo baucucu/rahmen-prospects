@@ -1,18 +1,21 @@
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Box, Button } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import PropTypes from 'prop-types';
 
 
-export default function ProspectsTable() {
+export default function ProspectsTable({onOpen}) {
+    
     const prospects = [
         // ... your prospects data here
     ];
     
     const handleAddProspect = () => {
     // Handle the add prospect action
+        onOpen()  
     };
 
     return(
-        <TableContainer component={Paper} sx={{ mx: 3, mb: 3, width: 'auto' }} className='opaque'>
+        <TableContainer component={Paper} sx={{ mx: 3, mb: 3, width: 'auto', backgroundColor: 'rgb(255,255,255,0.9)' }} >
             <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 2 }}>
                 {/* <Typography variant="h6">Prospects</Typography> */}
                 <Button variant="contained" size='small' startIcon={<AddIcon />} onClick={handleAddProspect}>
@@ -43,4 +46,8 @@ export default function ProspectsTable() {
             </Table>
         </TableContainer>
     )
+}
+
+ProspectsTable.propTypes = {
+    onOpen: PropTypes.func.isRequired,
 }

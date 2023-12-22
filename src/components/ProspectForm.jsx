@@ -7,6 +7,7 @@ import {
   Button,
   Select
 } from '@mui/material';
+import PropTypes from 'prop-types';
 
 function ProspectModal({ open, onClose, onSave }) {
   const handleSubmit = (event) => {
@@ -26,7 +27,7 @@ function ProspectModal({ open, onClose, onSave }) {
       <DialogContent>
         <form id="prospectForm" onSubmit={handleSubmit}>
             {/* 
-            create a form with the following fields:
+            a form with the following fields:
             1. Company Name : input text
             2. Founding Year : input number
             3. Stage : select from 1. Seed 2. Series A 3. Series B 4. Series C 5. Series D 6. Series E 7. Series F 8. Series G 9. Series H 10. IPO 11. Acquired 12. Other
@@ -156,3 +157,9 @@ function ProspectModal({ open, onClose, onSave }) {
 }
 
 export default ProspectModal;
+
+ProspectModal.propTypes = {
+    open: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
+    onSave: PropTypes.func.isRequired,
+}
