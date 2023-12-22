@@ -1,11 +1,13 @@
 import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  TextField,
-  DialogActions,
-  Button,
-  Select
+    Dialog,
+    DialogContent,
+    DialogTitle,
+    TextField,
+    DialogActions,
+    Button,
+    Select,
+    InputLabel,
+    FormControl
 } from '@mui/material';
 import PropTypes from 'prop-types';
 
@@ -56,26 +58,29 @@ function ProspectModal({ open, onClose, onSave }) {
                 type="number"
                 fullWidth
             />
-            <Select
-                margin="dense"
-                id="stage"
-                label="Stage"
-                type="text"
-                fullWidth
-            >
-                <option value="seed">Seed</option>
-                <option value="seriesA">Series A</option>
-                <option value="seriesB">Series B</option>
-                <option value="seriesC">Series C</option>
-                <option value="seriesD">Series D</option>
-                <option value="seriesE">Series E</option>
-                <option value="seriesF">Series F</option>
-                <option value="seriesG">Series G</option>
-                <option value="seriesH">Series H</option>
-                <option value="ipo">IPO</option>
-                <option value="acquired">Acquired</option>
-                <option value="other">Other</option>
-            </Select>
+            <FormControl fullWidth>
+                <InputLabel id="stage-label">Stage</InputLabel>
+                <Select
+                    margin="dense"
+                    id="stage"
+                    label="Stage"
+                    type="text"
+                    fullWidth
+                >
+                    <option value="seed">Seed</option>
+                    <option value="seriesA">Series A</option>
+                    <option value="seriesB">Series B</option>
+                    <option value="seriesC">Series C</option>
+                    <option value="seriesD">Series D</option>
+                    <option value="seriesE">Series E</option>
+                    <option value="seriesF">Series F</option>
+                    <option value="seriesG">Series G</option>
+                    <option value="seriesH">Series H</option>
+                    <option value="ipo">IPO</option>
+                    <option value="acquired">Acquired</option>
+                    <option value="other">Other</option>
+                </Select>
+            </FormControl>
             <TextField
                 margin="dense"
                 id="location"
@@ -132,20 +137,23 @@ function ProspectModal({ open, onClose, onSave }) {
                 type="text"
                 fullWidth
             />
-            <Select
-                margin="dense"
-                id="dataSource"
-                label="Data Source"
-                type="text"
-                fullWidth
-            >
-                <option value="startplatz">Startplatz</option>
-                <option value="munichStartup">Munich Startup</option>
-                <option value="startupMapBerlin">Startup Map Berlin</option>
-                <option value="startupsNRW">Startups NRW</option>
-                <option value="startbase">Startbase</option>
-                <option value="euStartups">EU Startups</option>
-            </Select>
+            <FormControl fullWidth>
+                <InputLabel id="source-label">Source</InputLabel>
+                <Select
+                    margin="dense"
+                    id="dataSource"
+                    label="Data Source"
+                    type="text"
+                    fullWidth
+                >
+                    <option value="startplatz">Startplatz</option>
+                    <option value="munichStartup">Munich Startup</option>
+                    <option value="startupMapBerlin">Startup Map Berlin</option>
+                    <option value="startupsNRW">Startups NRW</option>
+                    <option value="startbase">Startbase</option>
+                    <option value="euStartups">EU Startups</option>
+                </Select>
+            </FormControl>
         </form>
       </DialogContent>
       <DialogActions>
